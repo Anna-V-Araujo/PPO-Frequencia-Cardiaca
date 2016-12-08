@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.comunicacaoBluetooth;
+package ifpe.garanhuns.ppo.comunicacaoBluetooth;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -33,7 +33,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.android.bluetoothchat.R;
-import com.example.android.common.logger.Log;
+import ifpe.garanhuns.ppo.common.logger.Log;
 
 import java.util.Set;
 

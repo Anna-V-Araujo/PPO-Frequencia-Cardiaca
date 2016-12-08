@@ -1,11 +1,9 @@
-package com.example.android.persistencia;
+package ifpe.garanhuns.ppo.persistencia;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +13,8 @@ import java.util.List;
 
 public class PersistenciaTextoBinario {
 
+
+    //Singleton
     private static PersistenciaTextoBinario instance;
     private PersistenciaTextoBinario(){
 

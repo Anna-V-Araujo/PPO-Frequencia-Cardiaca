@@ -1,4 +1,4 @@
-package com.example.android.protocoloComunicacao;
+package ifpe.garanhuns.ppo.protocoloComunicacao;
 
 /**
  * Created by Anna Vitória on 25/11/2016.
@@ -34,7 +34,7 @@ public class PacoteDadosBPM {
     public byte[] encode(){
 
         int anoPt1 = ano/100;
-        int anoPt2 = ano - (anoPt1*100);
+        int anoPt2 = ano%100;
 
         byte[] buffer = new byte[9];
         buffer[0] = (byte) id;

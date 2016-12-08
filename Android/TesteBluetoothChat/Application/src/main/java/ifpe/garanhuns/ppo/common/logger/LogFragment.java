@@ -29,7 +29,7 @@
  * limitations under the License.
  */
 
-package com.example.android.common.logger;
+package ifpe.garanhuns.ppo.common.logger;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

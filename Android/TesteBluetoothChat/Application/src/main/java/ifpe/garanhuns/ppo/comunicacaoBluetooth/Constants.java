@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.comunicacaoBluetooth;
+package ifpe.garanhuns.ppo.comunicacaoBluetooth;
 
 /**
  * Defines several constants used between {@link BluetoothChatService} and the UI.

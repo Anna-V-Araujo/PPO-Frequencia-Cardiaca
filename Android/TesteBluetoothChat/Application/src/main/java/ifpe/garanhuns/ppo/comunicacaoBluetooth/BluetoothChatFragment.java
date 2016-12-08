@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.comunicacaoBluetooth;
+package ifpe.garanhuns.ppo.comunicacaoBluetooth;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -43,10 +43,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bluetoothchat.R;
-import com.example.android.common.logger.Log;
-import com.example.android.persistencia.PersistenciaTextoBinario;
-import com.example.android.protocoloComunicacao.PacoteConfirmacao;
-import com.example.android.protocoloComunicacao.PacoteDadosBPM;
+import ifpe.garanhuns.ppo.common.logger.Log;
+import ifpe.garanhuns.ppo.persistencia.PersistenciaTextoBinario;
+import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteConfirmacao;
+import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteDadosBPM;
 
 import java.io.IOException;
 
@@ -316,6 +316,7 @@ public class BluetoothChatFragment extends Fragment {
                         mChatService.write(pacoteConfirmacao.encode());
 
                         try {
+
                             PersistenciaTextoBinario.getInstance().salvarNoArquivo(readBuf);
                         } catch (IOException e) {
                             e.printStackTrace();
