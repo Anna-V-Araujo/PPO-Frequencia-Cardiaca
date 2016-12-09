@@ -311,8 +311,9 @@ public class BluetoothChatFragment extends Fragment {
                     pacoteDadosBPM.decode(readBuf);
 
                     if(pacoteDadosBPM.validarPreenchimento() == 0){
-
+                        //Todos os campos estão preenchidos
                         PacoteConfirmacao pacoteConfirmacao = new PacoteConfirmacao(pacoteDadosBPM.getId(), 0);
+
                         mChatService.write(pacoteConfirmacao.encode());
 
                         try {

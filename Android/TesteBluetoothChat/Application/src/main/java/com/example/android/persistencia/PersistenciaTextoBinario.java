@@ -16,9 +16,9 @@ import java.util.List;
 public class PersistenciaTextoBinario {
 
     private static PersistenciaTextoBinario instance;
-    private PersistenciaTextoBinario(){
+    private PersistenciaTextoBinario(){}
 
-    }
+
     public static PersistenciaTextoBinario getInstance() {
         if(instance==null)
             instance = new PersistenciaTextoBinario();
