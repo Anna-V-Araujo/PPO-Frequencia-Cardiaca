@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class PersistenciaTextoBinario {
         return instance;
     }
 
-    File pacoteBPMPersist = new File("PacoteBPMPersistencia.txt" /*Nome do arquivo*/);
+    File pacoteBPMPersist = new File("PacoteBPMPersistencia.bin" /*Nome do arquivo*/);
     FileOutputStream outputStream;
     FileInputStream inputStream;
 
@@ -46,8 +47,8 @@ public class PersistenciaTextoBinario {
         outputStream.flush();
     }
 
-    public List lerDoArquivo() throws IOException {
-        List buffersList = new ArrayList<byte[]>();
+    public LinkedList lerDoArquivo() throws IOException {
+        LinkedList buffersList = new LinkedList<>();
 
         int posicaoInicial = 0;
         int posicaoFinal = 8;

@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 import com.example.android.bluetoothchat.R;
 import ifpe.garanhuns.ppo.common.logger.Log;
+import ifpe.garanhuns.ppo.persistencia.HistoricoRecente;
 import ifpe.garanhuns.ppo.persistencia.PersistenciaTextoBinario;
 import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteConfirmacao;
 import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteDadosBPM;
@@ -317,8 +318,7 @@ public class BluetoothChatFragment extends Fragment {
                         mChatService.write(pacoteConfirmacao.encode());
 
                         try {
-
-                            PersistenciaTextoBinario.getInstance().salvarNoArquivo(readBuf);
+                            HistoricoRecente.getInstance().adicionarPacote(pacoteDadosBPM);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
