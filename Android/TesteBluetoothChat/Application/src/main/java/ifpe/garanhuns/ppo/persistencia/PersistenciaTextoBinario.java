@@ -16,9 +16,9 @@ public class PersistenciaTextoBinario {
 
     //Singleton
     private static PersistenciaTextoBinario instance;
-    private PersistenciaTextoBinario(){
+    private PersistenciaTextoBinario(){}
 
-    }
+
     public static PersistenciaTextoBinario getInstance() {
         if(instance==null)
             instance = new PersistenciaTextoBinario();

@@ -82,9 +82,9 @@ public class PacoteDadosBPM {
 
     public int validarPreenchimento(){
         if(id != 0 && dia != 0 && mes != 0 && ano != 0 && /*hora != 0 && minuto != 0 && segundo != 0 &&*/ bpm != 0){
-            return 0;
+            return 0; //Tudo Preenchido
         } else {
-            return 1;
+            return 1; //Algum campo não está preenchido
         }
     }
 
