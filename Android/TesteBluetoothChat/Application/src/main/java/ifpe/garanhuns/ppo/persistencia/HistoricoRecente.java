@@ -19,7 +19,7 @@ public class HistoricoRecente {
         return instance;
     }
 
-    LinkedList historico = new LinkedList();
+    LinkedList<StatusPacote> historico = new LinkedList();
 
     public HistoricoRecente() {
         try {
@@ -33,16 +33,23 @@ public class HistoricoRecente {
                 historico.add(tempList.get(tempListSize - i));
             }
             */
-
-            this.historico = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+            if (historico.isEmpty()) {
+                LinkedList<PacoteDadosBPM> histTemp = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+                for (PacoteDadosBPM p : histTemp) {
+                    StatusPacote statusPacote = new StatusPacote(p, true);
+                    historico.add(statusPacote);
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void adicionarPacote(PacoteDadosBPM pacoteDadosBPM) throws IOException {
-        historico.add(pacoteDadosBPM);
-        PersistenciaTextoBinario.getInstance().salvarNoArquivo(pacoteDadosBPM.encode());
+        StatusPacote statusPacote = new StatusPacote(pacoteDadosBPM, false);
+        historico.add(statusPacote);
+        //PersistenciaTextoBinario.getInstance().salvarNoArquivo(pacoteDadosBPM.encode());
+        //por isso em outro método
     }
 
 }

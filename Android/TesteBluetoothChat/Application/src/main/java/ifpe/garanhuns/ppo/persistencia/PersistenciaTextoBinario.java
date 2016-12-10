@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteDadosBPM;
+
 /**
  * Created by Anna Vitória on 28/11/2016.
  */
@@ -48,7 +50,7 @@ public class PersistenciaTextoBinario {
     }
 
     public LinkedList lerDoArquivo() throws IOException {
-        LinkedList buffersList = new LinkedList<>();
+        LinkedList<PacoteDadosBPM> pacoteDadosBPMLinkedList = new LinkedList<>();
 
         int posicaoInicial = 0;
         int posicaoFinal = 8;
@@ -57,12 +59,14 @@ public class PersistenciaTextoBinario {
            while (inputStream.read() != -1) {
                byte[] buffer = new byte[9];
                inputStream.read(buffer, posicaoInicial, posicaoFinal);
-               buffersList.add(buffer);
+               PacoteDadosBPM pacote = new PacoteDadosBPM();
+               pacote.decode(buffer);
+               pacoteDadosBPMLinkedList.add(pacote);
                posicaoInicial = posicaoInicial + 9;
                posicaoFinal = posicaoFinal + 9;
            }
         }
-        return buffersList;
+        return pacoteDadosBPMLinkedList;
     }
 
     public void fecharStream() throws IOException {
