@@ -48,8 +48,21 @@ public class HistoricoRecente {
     public void adicionarPacote(PacoteDadosBPM pacoteDadosBPM) throws IOException {
         StatusPacote statusPacote = new StatusPacote(pacoteDadosBPM, false);
         historico.add(statusPacote);
-        //PersistenciaTextoBinario.getInstance().salvarNoArquivo(pacoteDadosBPM.encode());
-        //por isso em outro método
+    }
+
+
+
+    public void  adicionarNaMemoriaInterna(){
+        for (StatusPacote statusPacote : historico) {
+            if(statusPacote.getEstaSalvo() == false){
+                try {
+                    PersistenciaTextoBinario.getInstance().salvarNoArquivo(statusPacote.getPacoteDadosBPM().encode());
+                    statusPacote.setEstaSalvo(true);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 }

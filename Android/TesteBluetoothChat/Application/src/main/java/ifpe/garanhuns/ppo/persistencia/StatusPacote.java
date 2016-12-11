@@ -15,5 +15,21 @@ public class StatusPacote {
         this.pacoteDadosBPM = pacoteDadosBPM;
         this.estaSalvo = estaSalvo;
     }
+
+    public PacoteDadosBPM getPacoteDadosBPM() {
+        return pacoteDadosBPM;
+    }
+
+    public void setPacoteDadosBPM(PacoteDadosBPM pacoteDadosBPM) {
+        this.pacoteDadosBPM = pacoteDadosBPM;
+    }
+
+    public boolean getEstaSalvo() {
+        return estaSalvo;
+    }
+
+    public void setEstaSalvo(boolean estaSalvo) {
+        this.estaSalvo = estaSalvo;
+    }
 }
 
