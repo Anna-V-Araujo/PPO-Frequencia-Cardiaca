@@ -13,10 +13,10 @@ public class PacoteDadosBPM {
     int hora;
     int minuto;
     int segundo;
-    int bpm; /*falta pesquisar os limites*/
+    int frequencia; /*falta pesquisar os limites*/
 
 
-    public PacoteDadosBPM(int id, int ano, int dia, int mes, int hora, int minuto, int segundo, int bpm) {
+    public PacoteDadosBPM(int id, int ano, int dia, int mes, int hora, int minuto, int segundo, int frequencia) {
         this.id = id;
         this.ano = ano;
         this.dia = dia;
@@ -24,7 +24,7 @@ public class PacoteDadosBPM {
         this.hora = hora;
         this.minuto = minuto;
         this.segundo = segundo;
-        this.bpm = bpm;
+        this.frequencia = frequencia;
     }
 
     public PacoteDadosBPM(){}
@@ -45,13 +45,13 @@ public class PacoteDadosBPM {
         buffer[5] = (byte) hora;
         buffer[6] = (byte) minuto;
         buffer[7] = (byte) segundo;
-        buffer[8] = (byte) bpm;
+        buffer[8] = (byte) frequencia;
 
         return buffer;
 
     }
 
-    public byte[] encode(int id, int dia, int mes, int ano, int hora, int minuto, int segundo, int bpm){
+    public byte[] encode(int id, int dia, int mes, int ano, int hora, int minuto, int segundo, int frequencia){
         this.id = id;
         this.dia = dia;
         this.mes = mes;
@@ -59,7 +59,7 @@ public class PacoteDadosBPM {
         this.hora = hora;
         this.minuto = minuto;
         this.segundo = segundo;
-        this.bpm = bpm;
+        this.frequencia = frequencia;
 
         return encode();
     }
@@ -76,12 +76,12 @@ public class PacoteDadosBPM {
         this.hora = buffer[5];
         this.minuto = buffer[6];
         this.segundo = buffer[7];
-        this.bpm = buffer[8];
+        this.frequencia = buffer[8];
     }
 
 
     public int validarPreenchimento(){
-        if(id != 0 && dia != 0 && mes != 0 && ano != 0 && /*hora != 0 && minuto != 0 && segundo != 0 &&*/ bpm != 0){
+        if(id != 0 && dia != 0 && mes != 0 && ano != 0 && /*hora != 0 && minuto != 0 && segundo != 0 &&*/ frequencia != 0){
             return 0; //Tudo Preenchido
         } else {
             return 1; //Algum campo não está preenchido
@@ -116,8 +116,8 @@ public class PacoteDadosBPM {
         return segundo;
     }
 
-    public int getBpm() {
-        return bpm;
+    public int getFrequencia() {
+        return frequencia;
     }
 
     /*A alteração do tamanho da mensagem foi em BCService e a criação dos Pacotes de dados em BCFragment*/

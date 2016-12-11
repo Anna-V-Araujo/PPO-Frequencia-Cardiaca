@@ -345,7 +345,7 @@ public class BluetoothChatFragment extends Fragment {
 //                    mConversationArrayAdapter.add(mConnectedDeviceName + ":  " + readMessage);
                     mConversationArrayAdapter.add(mConnectedDeviceName + ":  ID- " + pacoteDadosBPM.getId() + "  Data- " + pacoteDadosBPM.getDia() + "/"
                                                                             + pacoteDadosBPM.getMes() + "/" + pacoteDadosBPM.getAno() + " " + pacoteDadosBPM.getHora()
-                                                                            + ":" + pacoteDadosBPM.getMinuto() + ":" + pacoteDadosBPM.getSegundo() + "\n  BPM- " + pacoteDadosBPM.getBpm());
+                                                                            + ":" + pacoteDadosBPM.getMinuto() + ":" + pacoteDadosBPM.getSegundo() + "\n  BPM- " + pacoteDadosBPM.getFrequencia());
 
 
                     break;
