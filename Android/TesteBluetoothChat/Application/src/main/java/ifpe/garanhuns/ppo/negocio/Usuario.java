@@ -1,5 +1,8 @@
 package ifpe.garanhuns.ppo.negocio;
 
+import android.content.Context;
+import android.os.Vibrator;
+
 /**
  * Created by Anna Vitória on 11/12/2016.
  */
@@ -29,6 +32,13 @@ public class Usuario {
     public boolean verificarAdequacaoFrequencia (int frequencia){
         if(frequencia > freqMaxima || frequencia < freqMinima){
             return  false;
+
+            //Vibrar apenas onde for chamado - quando for adicionado um item na lista;
+            //Vibrator vibrator = (Vibrator) getSystemService(Usuario.class);
+            //(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            //Vibrator v = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
+            // Vibrate for 500 milliseconds
+           //vibrator.vibrate(500);
         } else {
             return true;
         }
