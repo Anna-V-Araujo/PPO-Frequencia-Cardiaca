@@ -1,0 +1,17 @@
+Módulo Bluetooth JY-MCU:
+     RX na porta digital de número 11
+     TX na porta digital de número 10
+     GND no GND
+     VCC em 5V 
+
+Pulse Sensor:
+     (+) em 3,3V ou 5V
+     (-) no GND
+     S na porta analógica de número 0
+
+RTC:
+     VCC em 5V
+     GND no GND
+     RST na porta digital de número 8
+     DAT na porta digital de número 7
+     CLK na porta digital de número 6
