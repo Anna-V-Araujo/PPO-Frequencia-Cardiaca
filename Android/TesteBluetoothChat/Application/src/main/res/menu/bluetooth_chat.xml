@@ -13,19 +13,28 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/secure_connect_scan"
-        android:icon="@drawable/ic_action_device_access_bluetooth_searching"
-        android:title="@string/secure_connect"/>
+    <group android:id="@+id/usuario_Settings" >
+        <item
+            android:title="Configurações de Usuário"/>
+    </group>
 
-    <item
-        android:id="@+id/insecure_connect_scan"
-        android:title="@string/insecure_connect"/>
+    <group android:id="@+id/bluetooth_Settings">
+        <item
+            android:id="@+id/secure_connect_scan"
+            android:icon="@drawable/ic_action_device_access_bluetooth_searching"
+            android:title="@string/secure_connect" />
 
-    <item
-        android:id="@+id/discoverable"
-        android:title="@string/discoverable"/>
+        <item
+            android:id="@+id/insecure_connect_scan"
+            android:title="@string/insecure_connect"/>
+
+        <item
+            android:id="@+id/discoverable"
+            android:title="@string/discoverable"/>
+
+    </group>
 
 </menu>
