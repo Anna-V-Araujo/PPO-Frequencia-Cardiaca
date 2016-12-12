@@ -27,6 +27,7 @@ import ifpe.garanhuns.ppo.common.activities.SampleActivityBase;
 import ifpe.garanhuns.ppo.common.logger.Log;
 import ifpe.garanhuns.ppo.common.logger.LogWrapper;
 import ifpe.garanhuns.ppo.common.logger.MessageOnlyLogFilter;
+import ifpe.garanhuns.ppo.persistencia.HistoricoRecente;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -53,6 +54,32 @@ public class MainActivity extends SampleActivityBase {
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
+    }
+
+
+    //Override segundo https://developer.android.com/reference/android/app/Activity.html
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
     }
 
     @Override

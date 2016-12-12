@@ -17,8 +17,13 @@ public class Usuario {
     }
 
     public void determinafequencias(){
-        freqMaxima = (int) ((200 - idade) * 0.7);
-        freqMinima = (int) ((200 - idade) * 0.6);
+        if(idade > 0) {
+            freqMaxima = (int) ((200 - idade) * 0.7);
+            freqMinima = (int) ((200 - idade) * 0.6);
+        } else{
+            freqMaxima = 0;
+            freqMinima = 0;
+        }
     }
 
     public boolean verificarAdequacaoFrequencia (int frequencia){
@@ -29,4 +34,19 @@ public class Usuario {
         }
     }
 
+    public int getFreqMaxima() {
+        return freqMaxima;
+    }
+
+    public void setFreqMaxima(int freqMaxima) {
+        this.freqMaxima = freqMaxima;
+    }
+
+    public int getFreqMinima() {
+        return freqMinima;
+    }
+
+    public void setFreqMinima(int freqMinima) {
+        this.freqMinima = freqMinima;
+    }
 }

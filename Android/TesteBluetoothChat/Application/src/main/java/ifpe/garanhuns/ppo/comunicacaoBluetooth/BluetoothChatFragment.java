@@ -417,6 +417,7 @@ public class BluetoothChatFragment extends Fragment {
         inflater.inflate(R.menu.bluetooth_chat, menu);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
