@@ -31,7 +31,9 @@
         android:id="@+id/button_atualiza_nome_idade"
         android:layout_below="@+id/usuario_idade_edit"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:onClick ="alteraNomeIdade"
+        />
 
     <TextView
         android:text="Configurações do Usuário"
@@ -84,7 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/button_atualiza_frequencia" />
+        android:id="@+id/button_atualiza_frequencia"
+        android:onClick="alteraFrequencias"/>
 
     <TextView
         android:text="Limites de Freqência Cardíaca"
@@ -118,7 +121,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName|number"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/usuario_freqMaxima_edit"
         android:layout_alignBottom="@+id/usuario_freqMaxima"

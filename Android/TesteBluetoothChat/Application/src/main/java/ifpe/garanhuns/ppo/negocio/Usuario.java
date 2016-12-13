@@ -9,6 +9,14 @@ import android.os.Vibrator;
 
 public class Usuario {
 
+
+    private static Usuario instance;
+    public static Usuario getInstance() {
+        if(instance == null)
+            instance = new Usuario("Default", 20);
+        return instance;
+    }
+
     public String nome;
     public int idade;
     public int freqMaxima;
@@ -58,5 +66,21 @@ public class Usuario {
 
     public void setFreqMinima(int freqMinima) {
         this.freqMinima = freqMinima;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 }

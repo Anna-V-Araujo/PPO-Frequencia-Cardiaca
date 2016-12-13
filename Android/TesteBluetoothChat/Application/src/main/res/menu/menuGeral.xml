@@ -11,14 +11,14 @@
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
-     limitations under the License.
-     C:\PPO-Frequencia Cardiaca\Android\TesteBluetoothChat\Application\src\main\res\menu\menuGeral-->
+     limitations under the License.-->
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/usuario_Settings" >
         <item
-            android:title="Configurações de Usuário"/>
+            android:title="Configurações de Usuário"
+            android:id="@+id/usuario_config_menuItem" />
     </group>
 
     <group android:id="@+id/bluetooth_Settings">

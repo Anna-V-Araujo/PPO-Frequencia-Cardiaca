@@ -44,6 +44,7 @@ import android.widget.Toast;
 
 import com.example.android.bluetoothchat.R;
 import ifpe.garanhuns.ppo.common.logger.Log;
+import ifpe.garanhuns.ppo.negocio.UsuarioConfiguracaoActivity;
 import ifpe.garanhuns.ppo.persistencia.HistoricoRecente;
 import ifpe.garanhuns.ppo.persistencia.PersistenciaTextoBinario;
 import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteConfirmacao;
@@ -436,6 +437,11 @@ public class BluetoothChatFragment extends Fragment {
             case R.id.discoverable: {
                 // Ensure this device is discoverable by others
                 ensureDiscoverable();
+                return true;
+            }
+            case R.id.usuario_config_menuItem: {
+                Intent serverIntent = new Intent(getActivity(), UsuarioConfiguracaoActivity.class);
+                startActivity(serverIntent);
                 return true;
             }
         }
