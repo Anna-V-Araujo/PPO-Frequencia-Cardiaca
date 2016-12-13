@@ -1,8 +1,12 @@
 package ifpe.garanhuns.ppo.persistencia;
 
+import android.app.Activity;
+
 import java.io.IOException;
 import java.util.LinkedList;
 
+import ifpe.garanhuns.ppo.common.activities.ActivityManager;
+import ifpe.garanhuns.ppo.comunicacaoBluetooth.MainActivity;
 import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteDadosBPM;
 
 /**
@@ -34,6 +38,7 @@ public class HistoricoRecente {
             }
             */
             if (historico.isEmpty()) {
+                Activity activity = ActivityManager.getInstance().getAtual();
                 LinkedList<PacoteDadosBPM> histTemp = PersistenciaTextoBinario.getInstance().lerDoArquivo();
                 for (PacoteDadosBPM p : histTemp) {
                     StatusPacote statusPacote = new StatusPacote(p, true);
@@ -52,11 +57,12 @@ public class HistoricoRecente {
 
 
 
-    public void  adicionarNaMemoriaInterna(){
+    public void sincronizarMemoriaInterna(){
+        Activity activity = ActivityManager.getInstance().getAtual();
         for (StatusPacote statusPacote : historico) {
             if(statusPacote.getEstaSalvo() == false){
                 try {
-                    PersistenciaTextoBinario.getInstance().salvarNoArquivo(statusPacote.getPacoteDadosBPM().encode());
+                    PersistenciaTextoBinario.getInstance().salvarNoArquivo(statusPacote.getPacoteDadosBPM().encode(), activity);
                     statusPacote.setEstaSalvo(true);
                 } catch (IOException e) {
                     e.printStackTrace();

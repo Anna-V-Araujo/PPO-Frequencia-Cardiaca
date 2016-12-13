@@ -96,7 +96,11 @@ public class BluetoothChatFragment extends Fragment {
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
-        PersistenciaTextoBinario.getInstance().criarStream();
+        try {
+            PersistenciaTextoBinario.getInstance().criarStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // If the adapter is null, then Bluetooth is not supported
         if (mBluetoothAdapter == null) {
@@ -415,7 +419,7 @@ public class BluetoothChatFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menuGeral, menu);
+        inflater.inflate(R.menu.menu_geral, menu);
     }
 
 

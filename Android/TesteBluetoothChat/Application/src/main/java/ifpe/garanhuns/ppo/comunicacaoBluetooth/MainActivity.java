@@ -23,6 +23,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.android.bluetoothchat.R;
+
+import ifpe.garanhuns.ppo.common.activities.ActivityManager;
 import ifpe.garanhuns.ppo.common.activities.SampleActivityBase;
 import ifpe.garanhuns.ppo.common.logger.Log;
 import ifpe.garanhuns.ppo.common.logger.LogWrapper;
@@ -54,6 +56,8 @@ public class MainActivity extends SampleActivityBase {
             transaction.replace(R.id.sample_content_fragment, fragment);
             transaction.commit();
         }
+
+        ActivityManager.getInstance().setAtual(this);
     }
 
 
@@ -61,25 +65,26 @@ public class MainActivity extends SampleActivityBase {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+        HistoricoRecente.getInstance().sincronizarMemoriaInterna();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+        HistoricoRecente.getInstance().sincronizarMemoriaInterna();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+        ActivityManager.getInstance().setAtual(this);
+        HistoricoRecente.getInstance().sincronizarMemoriaInterna();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        HistoricoRecente.getInstance().adicionarNaMemoriaInterna();
+        HistoricoRecente.getInstance().sincronizarMemoriaInterna();
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.widget.EditText;
 
 import com.example.android.bluetoothchat.R;
 
+import ifpe.garanhuns.ppo.common.activities.ActivityManager;
+
 import static java.lang.Integer.parseInt;
 
 public class UsuarioConfiguracaoActivity extends AppCompatActivity {
@@ -16,6 +18,13 @@ public class UsuarioConfiguracaoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.usuario_configuracao);
+        ActivityManager.getInstance().setAtual(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ActivityManager.getInstance().setAtual(this);
     }
 
     public void alteraNomeIdade(){
