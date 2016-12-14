@@ -57,14 +57,8 @@ public class DeviceListActivity extends Activity {
      */
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
 
-    /**
-     * Member fields
-     */
     private BluetoothAdapter mBtAdapter;
 
-    /**
-     * Newly discovered devices
-     */
     private ArrayAdapter<String> mNewDevicesArrayAdapter;
 
     @Override

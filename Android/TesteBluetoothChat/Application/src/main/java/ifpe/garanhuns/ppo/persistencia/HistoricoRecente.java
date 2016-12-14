@@ -1,12 +1,15 @@
 package ifpe.garanhuns.ppo.persistencia;
 
 import android.app.Activity;
+import android.content.Context;
+import android.os.Vibrator;
 
 import java.io.IOException;
 import java.util.LinkedList;
 
 import ifpe.garanhuns.ppo.common.activities.ActivityManager;
 import ifpe.garanhuns.ppo.comunicacaoBluetooth.MainActivity;
+import ifpe.garanhuns.ppo.negocio.Usuario;
 import ifpe.garanhuns.ppo.protocoloComunicacao.PacoteDadosBPM;
 
 /**
@@ -53,6 +56,11 @@ public class HistoricoRecente {
     public void adicionarPacote(PacoteDadosBPM pacoteDadosBPM) throws IOException {
         StatusPacote statusPacote = new StatusPacote(pacoteDadosBPM, false);
         historico.add(statusPacote);
+       if (Usuario.getInstance().verificarAdequacaoFrequencia(statusPacote.getPacoteDadosBPM().getFrequencia()) == false) {
+           Vibrator v = (Vibrator) ActivityManager.getInstance().getAtual().getSystemService(Context.VIBRATOR_SERVICE);
+           v.vibrate(1000);
+       }
+
     }
 
 
