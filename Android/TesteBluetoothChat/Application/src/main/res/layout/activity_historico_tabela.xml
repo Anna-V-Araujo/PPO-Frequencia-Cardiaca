@@ -18,10 +18,12 @@
         android:layout_marginTop="98dp"
         android:id="@+id/tabela"
         android:numColumns="2"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
         />
 
     <TextView
-        android:text="Frequência    Cardíaca"
+        android:text="Frequência Cardíaca"
         android:layout_width="250px"
         android:layout_height="wrap_content"
         android:id="@+id/frequenciaText"
