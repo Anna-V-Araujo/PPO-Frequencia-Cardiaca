@@ -443,7 +443,7 @@ public class BluetoothChatFragment extends Fragment {
                 ensureDiscoverable();
                 return true;
             }
-            case R.id.usuario_config_menuItem: {
+            case R.id.usuario_config: {
                 Intent serverIntent = new Intent(getActivity(), UsuarioConfiguracaoActivity.class);
                 startActivity(serverIntent);
                 return true;

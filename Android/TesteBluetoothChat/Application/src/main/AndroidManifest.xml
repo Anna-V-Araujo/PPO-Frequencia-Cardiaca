@@ -22,10 +22,9 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -47,7 +46,8 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/select_device"
             android:theme="@android:style/Theme.Holo.Dialog" />
-        <activity android:name="ifpe.garanhuns.ppo.negocio.UsuarioConfiguracaoActivity"></activity>
+        <activity android:name="ifpe.garanhuns.ppo.negocio.UsuarioConfiguracaoActivity" />
+        <activity android:name="ifpe.garanhuns.ppo.persistencia.historicoTabela"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,9 @@
 package ifpe.garanhuns.ppo.negocio;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import com.example.android.bluetoothchat.R;
@@ -10,7 +12,7 @@ import ifpe.garanhuns.ppo.common.activities.ActivityManager;
 
 import static java.lang.Integer.parseInt;
 
-public class UsuarioConfiguracaoActivity extends AppCompatActivity {
+public class UsuarioConfiguracaoActivity extends Activity {
 
 
 
@@ -27,7 +29,7 @@ public class UsuarioConfiguracaoActivity extends AppCompatActivity {
         ActivityManager.getInstance().setAtual(this);
     }
 
-    public void alteraNomeIdade(){
+    public void alteraNomeIdade(View view){
         EditText editText1 = (EditText) findViewById(R.id.usuario_nome_edit);
         String nome = editText1.getText().toString();
         Usuario.getInstance().setNome(nome);

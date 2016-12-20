@@ -15,13 +15,13 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/usuario_Settings" >
+
+    <group android:id="@+id/grupo_geral">
+
         <item
             android:title="Configurações de Usuário"
-            android:id="@+id/usuario_config_menuItem" />
-    </group>
+            android:id="@+id/usuario_config" />
 
-    <group android:id="@+id/bluetooth_Settings">
         <item
             android:id="@+id/secure_connect_scan"
             android:icon="@drawable/ic_action_device_access_bluetooth_searching"
@@ -34,6 +34,8 @@
         <item
             android:id="@+id/discoverable"
             android:title="@string/discoverable"/>
+        <item android:title="Item"
+            android:id="@+id/historico_tabela" />
 
     </group>
 

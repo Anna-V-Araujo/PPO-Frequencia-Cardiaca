@@ -54,13 +54,9 @@ public class PersistenciaTextoBinario {
         }
 
 
-        //?
-        if(!pacoteBPMPersist.exists()) {
-            pacoteBPMPersist = new File(file.getAbsolutePath(), "PacoteBPMPersistencia.bin");
-        }
+        pacoteBPMPersist = new File(file.getAbsolutePath(), "PacoteBPMPersistencia.bin");
         outputStream = new FileOutputStream(pacoteBPMPersist);
         inputStream = new FileInputStream(pacoteBPMPersist); //Isso é a mesma coisa que FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE) ?
-        String a = pacoteBPMPersist.getAbsolutePath();
 
     }
 
