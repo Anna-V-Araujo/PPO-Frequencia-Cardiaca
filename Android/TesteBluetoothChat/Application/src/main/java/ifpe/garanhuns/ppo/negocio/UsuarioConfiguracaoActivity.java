@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.bluetoothchat.R;
 
@@ -14,7 +15,13 @@ import static java.lang.Integer.parseInt;
 
 public class UsuarioConfiguracaoActivity extends Activity {
 
+    EditText editText3;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        editText3 = (EditText) findViewById(R.id.usuario_freqMinima_edit);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +47,17 @@ public class UsuarioConfiguracaoActivity extends Activity {
         Usuario.getInstance().setIdade(idade);
 
         Usuario.getInstance().determinafequencias();
-        EditText editText3 = (EditText) findViewById(R.id.usuario_freqMinima_edit);
-        editText3.setText(Usuario.getInstance().getFreqMinima());
+        String mensagemFreq = "Sua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\n Sua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
+        Toast.makeText(ActivityManager.getInstance().getAtual(), mensagemFreq, Toast.LENGTH_SHORT).show();
+        //editText3.setText(String.valueOf(Usuario.getInstance().getFreqMinima()));
+        //((EditText) findViewById(R.id.usuario_freqMinima_edit)).setText(Usuario.getInstance().getFreqMinima());
 
-        EditText editText4 = (EditText) findViewById(R.id.usuario_freqMaxima_edit);
-        editText4.setText(Usuario.getInstance().getFreqMaxima());
+//        EditText editText4 = (EditText) findViewById(R.id.usuario_freqMaxima_edit);
+//        editText4.setText(Usuario.getInstance().getFreqMaxima());
 
     }
 
-    public void alteraFrequencias(){
+    public void alteraFrequencias(View view){
         EditText editText1 = (EditText) findViewById(R.id.usuario_freqMinima_edit);
         String freqMinStr = editText1.getText().toString();
         int frequenciaMinima = Integer.parseInt(freqMinStr);
@@ -57,7 +66,11 @@ public class UsuarioConfiguracaoActivity extends Activity {
         EditText editText2 = (EditText) findViewById(R.id.usuario_freqMaxima_edit);
         String freqMaxStr = editText2.getText().toString();
         int freqMax = Integer.parseInt(freqMaxStr);
-        Usuario.getInstance().setIdade(freqMax);
+        Usuario.getInstance().setFreqMaxima(freqMax);
+
+        String mensagemFreq = "Sua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\n Sua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
+        Toast.makeText(ActivityManager.getInstance().getAtual(), mensagemFreq, Toast.LENGTH_SHORT).show();
+        //editText3.setText(String.valueOf(Usuario.getInstance().getFreqMinima()));
     }
 
 }

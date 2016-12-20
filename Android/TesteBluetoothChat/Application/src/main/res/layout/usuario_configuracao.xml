@@ -73,7 +73,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName|number"
-        android:text="Name"
         android:ems="10"
         android:layout_above="@+id/usuario_freqMaxima"
         android:layout_alignLeft="@+id/usuario_idade_edit"
