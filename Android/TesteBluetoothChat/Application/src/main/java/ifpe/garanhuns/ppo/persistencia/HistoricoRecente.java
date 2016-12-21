@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Vibrator;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import ifpe.garanhuns.ppo.common.activities.ActivityManager;
@@ -56,13 +57,44 @@ public class HistoricoRecente {
     public void adicionarPacote(PacoteDadosBPM pacoteDadosBPM) throws IOException {
         StatusPacote statusPacote = new StatusPacote(pacoteDadosBPM, false);
         historico.add(statusPacote);
-       if (Usuario.getInstance().verificarAdequacaoFrequencia(statusPacote.getPacoteDadosBPM().getFrequencia()) == false) {
+       if (!Usuario.getInstance().verificarAdequacaoFrequencia(statusPacote.getPacoteDadosBPM().getFrequencia())) {
            Vibrator v = (Vibrator) ActivityManager.getInstance().getAtual().getSystemService(Context.VIBRATOR_SERVICE);
            v.vibrate(1000);
        }
+        /*if (Usuario.getInstance().verificarAdequacaoFrequencia(statusPacote.getPacoteDadosBPM().getFrequencia()) == false) {
+           Vibrator v = (Vibrator) ActivityManager.getInstance().getAtual().getSystemService(Context.VIBRATOR_SERVICE);
+           v.vibrate(1000);
+       }*/
 
     }
 
+    public ArrayList<Integer> ultimasFrequencias() throws IOException {
+     LinkedList<PacoteDadosBPM> tempList = new LinkedList<>();
+        tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        int tempListSize = tempList.size();
+
+        ArrayList<Integer> ultimosValoresList = new ArrayList<>();
+        for(int i = 0; i > 11; i++) {
+            ultimosValoresList.add(tempList.get(tempListSize - i).getFrequencia());
+        }
+        return ultimosValoresList;
+    }
+
+    public ArrayList<String> ultimoasDatas() throws IOException {
+        LinkedList<PacoteDadosBPM> tempList = new LinkedList<>();
+        tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        int tempListSize = tempList.size();
+
+        ArrayList<String> ultimosValoresList = new ArrayList<>();
+        for(int i = 0; i > 11; i++) {
+            String legenda =  /*tempList.get(tempListSize - i).getDia() + "/"
+                    + tempList.get(tempListSize - i).getMes() + "/" + tempList.get(tempListSize - i).getAno() + " " + */ tempList.get(tempListSize - i).getHora()
+                    + ":" + tempList.get(tempListSize - i).getMinuto() + ":" + tempList.get(tempListSize - i).getSegundo();
+
+            ultimosValoresList.add(legenda);
+        }
+        return ultimosValoresList;
+    }
 
 
     public void sincronizarMemoriaInterna(){

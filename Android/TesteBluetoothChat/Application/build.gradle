@@ -22,6 +22,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:24.1.1"
     compile files('libs/activation.jar', 'libs/additional.jar')
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'im.dacer:AndroidCharts:1.0.2'
 }
 
 // The sample build uses multiple directories to
@@ -37,7 +38,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 24
     }
 

@@ -43,6 +43,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.bluetoothchat.R;
+
+import ifpe.garanhuns.ppo.apresentacao.Grafico;
 import ifpe.garanhuns.ppo.common.logger.Log;
 import ifpe.garanhuns.ppo.negocio.UsuarioConfiguracaoActivity;
 import ifpe.garanhuns.ppo.persistencia.HistoricoRecente;
@@ -445,6 +447,11 @@ public class BluetoothChatFragment extends Fragment {
             }
             case R.id.usuario_config: {
                 Intent serverIntent = new Intent(getActivity(), UsuarioConfiguracaoActivity.class);
+                startActivity(serverIntent);
+                return true;
+            }
+            case R.id.init_grafico: {
+                Intent serverIntent = new Intent(getActivity(), Grafico.class);
                 startActivity(serverIntent);
                 return true;
             }

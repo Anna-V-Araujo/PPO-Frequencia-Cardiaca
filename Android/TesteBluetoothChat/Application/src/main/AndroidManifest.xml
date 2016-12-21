@@ -47,7 +47,8 @@
             android:label="@string/select_device"
             android:theme="@android:style/Theme.Holo.Dialog" />
         <activity android:name="ifpe.garanhuns.ppo.negocio.UsuarioConfiguracaoActivity" />
-        <activity android:name="ifpe.garanhuns.ppo.persistencia.historicoTabela"></activity>
+        <activity android:name="ifpe.garanhuns.ppo.persistencia.historicoTabela" />
+        <activity android:name="ifpe.garanhuns.ppo.apresentacao.Grafico"></activity>
     </application>
 
 </manifest>

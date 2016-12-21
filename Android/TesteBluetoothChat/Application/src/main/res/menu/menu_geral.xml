@@ -34,8 +34,8 @@
         <item
             android:id="@+id/discoverable"
             android:title="@string/discoverable"/>
-        <item android:title="Item"
-            android:id="@+id/historico_tabela" />
+        <item android:title="Ver dados em gráfico"
+            android:id="@+id/init_grafico" />
 
     </group>
 
