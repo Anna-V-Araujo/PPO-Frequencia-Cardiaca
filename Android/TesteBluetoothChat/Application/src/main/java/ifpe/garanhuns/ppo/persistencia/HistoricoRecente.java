@@ -68,9 +68,13 @@ public class HistoricoRecente {
 
     }
 
-    public ArrayList<Integer> ultimasFrequencias() throws IOException {
+    public ArrayList<Integer> ultimasFrequencias(){
      LinkedList<PacoteDadosBPM> tempList = new LinkedList<>();
-        tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        try {
+            tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int tempListSize = tempList.size();
 
         ArrayList<Integer> ultimosValoresList = new ArrayList<>();
@@ -80,9 +84,13 @@ public class HistoricoRecente {
         return ultimosValoresList;
     }
 
-    public ArrayList<String> ultimoasDatas() throws IOException {
+    public ArrayList<String> ultimosDatas() {
         LinkedList<PacoteDadosBPM> tempList = new LinkedList<>();
-        tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        try {
+            tempList = PersistenciaTextoBinario.getInstance().lerDoArquivo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         int tempListSize = tempList.size();
 
         ArrayList<String> ultimosValoresList = new ArrayList<>();
