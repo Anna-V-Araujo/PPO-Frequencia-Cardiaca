@@ -1,5 +1,6 @@
 package ifpe.garanhuns.ppo.apresentacao;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,13 +8,12 @@ import android.view.View;
 
 import com.example.android.bluetoothchat.R;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import ifpe.garanhuns.ppo.persistencia.HistoricoRecente;
 import im.dacer.androidcharts.LineView;
 
-public class Grafico extends AppCompatActivity {
+public class Grafico extends Activity {
 
     LineView lineView;
     ArrayList<String> legenda;

@@ -35,6 +35,7 @@
         android:layout_below="@+id/horizontalScrollView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="52dp"
-        android:id="@+id/button_atualizar_grafico" />
+        android:id="@+id/button_atualizar_grafico"
+        android:onClick="atualizaGrafico"/>
 
 </RelativeLayout>

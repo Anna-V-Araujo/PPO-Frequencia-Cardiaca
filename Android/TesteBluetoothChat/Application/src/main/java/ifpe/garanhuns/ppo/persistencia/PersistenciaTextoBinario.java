@@ -48,16 +48,37 @@ public class PersistenciaTextoBinario {
     }
 
     public void criarStream() throws IOException {
-        File file = new File(android.os.Environment.getExternalStorageDirectory() + "teste/");
-        if(file.exists()){
-            file.mkdirs();
+
+
+        int permission = ActivityCompat.checkSelfPermission(ActivityManager.getInstance().getAtual(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    ActivityManager.getInstance().getAtual(),
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
         }
 
 
-        pacoteBPMPersist = new File(file.getAbsolutePath(), "PacoteBPMPersistencia.bin");
+
+        File file = new File(android.os.Environment.getExternalStorageDirectory() + "/frequenciaCardiaca");
+        if(file.exists() == false){
+            file.mkdirs();
+        }
+
+        pacoteBPMPersist.createNewFile();
+        pacoteBPMPersist = new File(file.getAbsolutePath() + "/Arquivo", "PacoteBPMPersistencia.bin");
+        /*if(pacoteBPMPersist.exists() == false){
+           pacoteBPMPersist.createNewFile();
+        }*/
+
         outputStream = new FileOutputStream(pacoteBPMPersist);
         inputStream = new FileInputStream(pacoteBPMPersist); //Isso é a mesma coisa que FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE) ?
-
+        byte[] primeiroItem = " ".getBytes();
+        outputStream.write(primeiroItem);
+        outputStream.flush();
     }
 
     public void salvarNoArquivo(byte[] buffer, Activity activity) throws IOException {
