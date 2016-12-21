@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.opengl.EGLExt;
+import android.os.Environment;
 import android.support.v4.app.ActivityCompat;
 
 import java.io.File;
@@ -28,6 +29,8 @@ public class PersistenciaTextoBinario {
     private FileOutputStream outputStream;
     private FileInputStream inputStream;
 
+    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/frequenciaCardiaca";
+
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
@@ -49,6 +52,8 @@ public class PersistenciaTextoBinario {
 
     public void criarStream() throws IOException {
 
+        File diretorio = new File(path);
+        diretorio.mkdirs();
 
         int permission = ActivityCompat.checkSelfPermission(ActivityManager.getInstance().getAtual(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
@@ -63,16 +68,13 @@ public class PersistenciaTextoBinario {
 
 
 
-        File file = new File(android.os.Environment.getExternalStorageDirectory() + "/frequenciaCardiaca");
-        if(file.exists() == false){
-            file.mkdirs();
-        }
+        //File file = new File(path + "/frequenciaCardiaca");
 
-        pacoteBPMPersist.createNewFile();
-        pacoteBPMPersist = new File(file.getAbsolutePath() + "/Arquivo", "PacoteBPMPersistencia.bin");
+        pacoteBPMPersist = new File (path + "/frequenciaCardiaca");
         /*if(pacoteBPMPersist.exists() == false){
            pacoteBPMPersist.createNewFile();
         }*/
+        pacoteBPMPersist.createNewFile();
 
         outputStream = new FileOutputStream(pacoteBPMPersist);
         inputStream = new FileInputStream(pacoteBPMPersist); //Isso é a mesma coisa que FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE) ?
