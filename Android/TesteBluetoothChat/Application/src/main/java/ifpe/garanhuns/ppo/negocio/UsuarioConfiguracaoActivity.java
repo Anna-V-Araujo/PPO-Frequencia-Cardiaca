@@ -47,7 +47,7 @@ public class UsuarioConfiguracaoActivity extends Activity {
         Usuario.getInstance().setIdade(idade);
 
         Usuario.getInstance().determinafequencias();
-        String mensagemFreq = "Sua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\n Sua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
+        String mensagemFreq = nome + ":\nSua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\nSua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
         Toast.makeText(ActivityManager.getInstance().getAtual(), mensagemFreq, Toast.LENGTH_SHORT).show();
         //editText3.setText(String.valueOf(Usuario.getInstance().getFreqMinima()));
         //((EditText) findViewById(R.id.usuario_freqMinima_edit)).setText(Usuario.getInstance().getFreqMinima());
@@ -61,14 +61,23 @@ public class UsuarioConfiguracaoActivity extends Activity {
         EditText editText1 = (EditText) findViewById(R.id.usuario_freqMinima_edit);
         String freqMinStr = editText1.getText().toString();
         int frequenciaMinima = Integer.parseInt(freqMinStr);
-        Usuario.getInstance().setFreqMinima(frequenciaMinima);
 
         EditText editText2 = (EditText) findViewById(R.id.usuario_freqMaxima_edit);
         String freqMaxStr = editText2.getText().toString();
-        int freqMax = Integer.parseInt(freqMaxStr);
-        Usuario.getInstance().setFreqMaxima(freqMax);
+        int frequenciaMaxima = Integer.parseInt(freqMaxStr);
 
-        String mensagemFreq = "Sua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\n Sua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
+
+        if(frequenciaMinima > frequenciaMaxima){
+            int temp = frequenciaMaxima;
+            frequenciaMaxima = frequenciaMinima;
+            frequenciaMinima = temp;
+            Toast.makeText(ActivityManager.getInstance().getAtual(), "A frequencia máxima não pode ser menor que a mínima. \nInvertemos os valores.", Toast.LENGTH_LONG).show();
+        }
+
+        Usuario.getInstance().setFreqMinima(frequenciaMinima);
+        Usuario.getInstance().setFreqMaxima(frequenciaMaxima);
+
+        String mensagemFreq = "Sua frquencia mínima é: " + Usuario.getInstance().getFreqMinima() + "\nSua frequência máxima é: " + Usuario.getInstance().getFreqMaxima();
         Toast.makeText(ActivityManager.getInstance().getAtual(), mensagemFreq, Toast.LENGTH_SHORT).show();
         //editText3.setText(String.valueOf(Usuario.getInstance().getFreqMinima()));
     }
